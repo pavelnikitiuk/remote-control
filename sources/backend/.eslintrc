@@ -1,0 +1,20 @@
+{
+  "plugins": ["node"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "google"
+  ],
+  "rules": {
+    "node/exports-style": ["error", "module.exports"],
+    "prefer-const": "error",
+    "object-curly-spacing": "off",
+    "quotes": ["error", "single"],
+    "require-jsdoc": "off",
+    "node/no-missing-require": [
+      "error",
+      { "resolvePaths": ["./sources"] }
+    ],
+    "new-cap": "off"
+  }
+}

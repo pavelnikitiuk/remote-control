@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  backend:
+    build: .
+    privileged: true
+    volumes:
+      - .:/usr/src/backend
+      - /usr/src/backend/node_modules
+    ports:
+      - 80:80
+    depends_on:
+      - database
+    environment:
+      NODE_ENV: development
+      COMPOSE_HTTP_TIMEOUT: 120
+  database:
+    image: jixer/rpi-mongo
+    volumes:
+      - /media/usb/database:/data/db
+    ports:
+      - 27017:27017

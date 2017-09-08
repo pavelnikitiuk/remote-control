@@ -1,0 +1,8 @@
+{
+  "recordings": {
+    "temperature": {
+      "updateTime": 10
+    }
+  },
+ "node-rf24-mesh": "git+https://github.com/pavelnikitiuk/node-rf24-mesh.git"
+}
