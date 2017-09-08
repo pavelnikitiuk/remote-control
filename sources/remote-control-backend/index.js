@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const app = express();
-const mongo = require('./mongo');
+const mongo = require('remote-control-database');
 
 const api = require('./api');
 
