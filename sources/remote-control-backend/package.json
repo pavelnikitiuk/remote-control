@@ -4,10 +4,10 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "main": "gulpfile.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node sources/index.js",
-    "dev": "nodemon sources/index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "docker:build": "docker build -t remote-control/backend .",
     "docker:run": "docker run --privileged -p 80:80 remote-control/backend"
   },
@@ -19,6 +19,9 @@
     "mongo-querystring": "^4.1.1",
     "mongoose": "^4.11.9",
     "morgan": "^1.8.2",
+    "remote-control-api": "^1.0.0",
+    "remote-control-database": "^1.0.0",
+    "remote-control-services": "^1.0.0",
     "rxjs": "^5.4.3",
     "socket.io": "^2.0.3",
     "winston": "^2.3.1"

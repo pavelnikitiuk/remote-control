@@ -1,5 +1,5 @@
 {
-  "name": "remote-control-database",
+  "name": "remote-control-services",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,8 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "mongoose": "^4.11.10"
-  }
+  "license": "ISC"
 }

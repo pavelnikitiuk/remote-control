@@ -7,12 +7,12 @@ const morgan = require('morgan');
 const app = express();
 const mongo = require('remote-control-database');
 
-const api = require('./api');
+const api = require('remote-control-api');
 
 const server = require('http').createServer(app);
 
 // const socket = require('socket').initialize(server);
-const nrfObservable = require('./remote/nrf/nrfObservable');
+// const nrfObservable = require('./remote/nrf/nrfObservable');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: 'true' }));
@@ -22,7 +22,7 @@ app.use(methodOverride());
 app.use('/api', api);
 
 mongo();
-nrfObservable();
+// nrfObservable();
 
 app.get('/', function(req, res) {
   console.log('hello world');

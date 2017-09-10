@@ -9,8 +9,6 @@ const password = process.env.PI_PASSWORD || 'raspberry';
 const host = process.env.PI_HOST || 'raspberrypi.local';
 const dest = process.env.PI_DEST_PATH || '/home/pi/remote-control/backend';
 
-console.log(password);
-
 var scpSettings = {
   host,
   username,
@@ -30,7 +28,7 @@ gulp.task('watch', () =>
 );
 
 gulp.task('default', () =>
-  gulp.src(['**/*.*', '**/**', '!node_modules/**'])
+  gulp.src(['**/*.*', '**/**', '!**/node_modules/**'])
     .pipe(scp(scpSettings))
     .on('error', (err) =>
       console.log(err)

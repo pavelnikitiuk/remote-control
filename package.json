@@ -1,5 +1,8 @@
 {
 	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-scp2": "^0.2.0",
+		"gulp-watch": "^4.3.11",
 		"lerna": "^2.1.2"
 	}
 }
