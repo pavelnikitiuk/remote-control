@@ -1,0 +1,25 @@
+{
+  "name": "remote-control-remote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "node-rf24-mesh": "git+https://github.com/pavelnikitiuk/node-rf24-mesh.git",
+    "remote-control-config": "1.0.0",
+    "remote-control-database": "1.0.0",
+    "remote-control-services": "1.0.0",
+    "remote-control-utils": "1.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rxjs": "^5.4.3"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "connectionString": "mongodb://database",
+  "recordings": {
+    "temperature": {
+      "updateTime": 10
+    }
+  }
+}
