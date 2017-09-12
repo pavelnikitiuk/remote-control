@@ -15,17 +15,13 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "method-override": "^2.3.9",
-    "module-alias": "^2.0.1",
     "mongo-querystring": "^4.1.1",
-    "mongoose": "^4.11.9",
     "morgan": "^1.8.2",
     "remote-control-api": "^1.0.0",
     "remote-control-config": "^1.0.0",
     "remote-control-database": "^1.0.0",
     "remote-control-services": "^1.0.0",
-    "rxjs": "^5.4.3",
-    "socket.io": "^2.0.3",
-    "winston": "^2.3.1"
+    "socket.io": "^2.0.3"
   },
   "devDependencies": {
     "eslint": "^4.6.1",
@@ -37,10 +33,6 @@
     "nodemon": "^1.11.0"
   },
   "author": "pavel nikitiuk",
-  "license": "ISC",
-  "_moduleDirectories": [
-    "sources",
-    "node_modules"
-  ]
+  "license": "ISC"
 }
 

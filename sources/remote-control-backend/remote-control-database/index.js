@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-module.exports = async () => {
-  await mongoose.connect('mongodb://database', {
-    useMongoClient: true,
-  });
+module.exports = {
+  connect: function(connectionString = 'mongodb://database') {
+    return mongoose.connect(connectionString, {
+      useMongoClient: true,
+    });
+  },
+  repositories: require('./repositories'),
 };

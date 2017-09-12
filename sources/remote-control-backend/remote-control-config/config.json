@@ -1,5 +1,6 @@
 {
   "connectionString": "mongodb://database",
+  "port": 80,
   "recordings": {
     "temperature": {
       "updateTime": 10

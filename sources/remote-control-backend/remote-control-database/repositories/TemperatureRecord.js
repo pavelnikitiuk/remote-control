@@ -1,6 +1,6 @@
 const RecordBase = require('./Base/RecordBase');
 
-const TemperatureRecordModel = require('mongo/models/recordings/Temperature');
+const TemperatureRecordModel = require('../models/recordings/Temperature');
 
 class TemperatureRecord extends RecordBase {
   add(temperatureNote) {
