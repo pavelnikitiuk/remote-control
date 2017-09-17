@@ -5,7 +5,8 @@ const morgan = require('morgan');
 const api = require('remote-control-api');
 const { logger } = require('remote-control-services');
 const { get } = require('remote-control-config');
-// const { Nrf, getObserverCallback } = require('remote-control-database');
+const { connect } = require('remote-control-database');
+const { start:nrfStart } = require('remote-control-nrf');
 const http = require('http');
 
 const app = express();
@@ -17,6 +18,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
 app.use('/api', api);
+
+connect(get('connectionString'));
+nrfStart();
 
 app.get('/', function(req, res) {
   res.send('Hello World');

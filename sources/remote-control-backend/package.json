@@ -20,6 +20,7 @@
     "remote-control-api": "^1.0.0",
     "remote-control-config": "^1.0.0",
     "remote-control-database": "^1.0.0",
+    "remote-control-nrf": "^1.0.0",
     "remote-control-services": "^1.0.0",
     "socket.io": "^2.0.3"
   },
@@ -35,4 +36,5 @@
   "author": "pavel nikitiuk",
   "license": "ISC"
 }
+
 

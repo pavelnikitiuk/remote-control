@@ -1,4 +1,10 @@
+const Nrf = require('./nrf');
+const getObserverCallback = require('./dataObservable');
+
 module.exports = {
-  Nrf: require('./nrf'),
-  getObserverCallback: require('./dataObservable'),
+  Nrf,
+  getObserverCallback,
+  start: () => {
+    Nrf.addListener(getObserverCallback());
+  },
 };

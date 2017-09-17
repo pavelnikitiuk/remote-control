@@ -1,36 +1,25 @@
-'use strict'
+'use strict';
 
 var gulp = require('gulp');
-var scp = require('gulp-scp2');
-var watch = require('gulp-watch');
+var rsync = require('gulp-rsync');
 
 const username = process.env.PI_USER_NAME || 'pi';
-const password = process.env.PI_PASSWORD || 'raspberry';
-const host = process.env.PI_HOST || 'raspberrypi.local';
-const dest = process.env.PI_DEST_PATH || '/home/pi/remote-control/backend';
+const hostname = process.env.PI_HOST || 'raspberrypi.local';
+const destination = process.env.PI_DEST_PATH || '/home/pi/remote-control';
 
-var scpSettings = {
-  host,
+var settings = {
+  hostname,
   username,
-  password,
-  dest,
-  watch: (client) =>
-    client.on('write', (o) =>
-      console.log('write %s', o.destination)),
+  destination,
+  progress: true,
+  exclude: '**/node_modules/**',
+  clean: true,
+  recursive: true,
 };
 
-gulp.task('watch', () =>
-  watch(['**/*.*', '**/**', '!node_modules/**', '!.git/**'])
-    .pipe(scp(scpSettings))
-    .on('error', (err) =>
-      console.log(err)
-    )
-);
+const watchPattern = ['**/*', '!**/node_modules/**'];
 
 gulp.task('default', () =>
-  gulp.src(['**/*.*', '**/**', '!**/node_modules/**'])
-    .pipe(scp(scpSettings))
-    .on('error', (err) =>
-      console.log(err)
-    )
+  gulp.src(watchPattern)
+    .pipe(rsync(settings))
 );

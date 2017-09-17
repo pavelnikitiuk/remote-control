@@ -10,10 +10,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "node-rf24-mesh": "https://github.com/pavelnikitiuk/node-rf24-mesh.git",
     "remote-control-config": "1.0.0",
     "remote-control-database": "1.0.0",
     "remote-control-services": "1.0.0",
-    "remote-control-utils": "1.0.0"
+    "remote-control-utils": "1.0.0",
+    "rxjs": "^5.4.3"
   },
   "keywords": [],
   "author": "",
