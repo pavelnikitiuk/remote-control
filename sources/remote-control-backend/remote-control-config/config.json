@@ -1,6 +1,6 @@
 {
   "connectionString": "mongodb://localhost",
-  "port": 3000,
+  "backendPort": 3000,
   "recordings": {
     "temperature": {
       "updateTime": 10

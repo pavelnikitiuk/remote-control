@@ -1,0 +1,19 @@
+{
+  "name": "remote-control-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "remote-control-backend": "1.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "remote-control-backend": "1.0.0",
+    "remote-control-config": "1.0.0",
+    "remote-control-services": "1.0.0"
+  }
+}
