@@ -17,12 +17,12 @@ function temperature(observable) {
   );
   temperatureObservable.subscribe((data) => {
     logger.info(data);
-    return data;
   });
   temperatureObservable
     .throttleTime(toMinutes(updateTime))
     .subscribe((data) => {
-      TemperatureRecord.add(data);
+      const { fromNode, temperature } = data;
+      TemperatureRecord.add(fromNode, temperature);
     });
 }
 

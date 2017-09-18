@@ -8,4 +8,4 @@ const TemperatureRecord = new Schema({
   date: Date,
 });
 
-module.exports = mongoose.model('TemperatureRecord', TemperatureRecord);
+module.exports = mongoose.model('Record', TemperatureRecord);

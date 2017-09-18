@@ -1,14 +1,18 @@
 const RecordBase = require('./Base/RecordBase');
 
-const TemperatureRecordModel = require('../models/recordings/Temperature');
+const TemperatureRecordModel = require('../models/Recording');
 
 class TemperatureRecord extends RecordBase {
-  add(temperatureNote) {
-    const { fromNode, temperature, messageType } = temperatureNote;
+  find(query = {}) {
+    const tempQuery = Object.assign({}, query, {messageType: 'T'});
+    return super.find(tempQuery);
+  }
+
+  add(sensorId, value) {
     const model = {
-      sensorId: fromNode,
-      value: temperature,
-      messageType,
+      sensorId,
+      value,
+      messageType: 'T',
       date: new Date(),
     };
     return super.add(model);
