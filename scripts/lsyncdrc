@@ -1,0 +1,17 @@
+settings {
+    statusInterval=1,
+    insist=true,
+}
+
+sync {
+    default.rsyncssh,
+    exclude={'**/node_modules/**', '.git/**'},
+    source="..",
+    host="pi@raspberrypi.local",
+    targetdir="remote-control",
+    rsync={
+        archive=true,
+        verbose=true,
+        compress=ture
+    }
+}
