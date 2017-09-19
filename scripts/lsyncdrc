@@ -7,7 +7,7 @@ sync {
     default.rsyncssh,
     exclude={'**/node_modules/**', '.git/**'},
     source="..",
-    delay=3,
+    delay=0.5,
     host="pi@raspberrypi.local",
     targetdir="remote-control",
     rsync={
