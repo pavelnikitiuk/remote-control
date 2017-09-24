@@ -2,11 +2,12 @@
 	"scripts": {
 		"build": "gulp default",
 		"bootstrap": "lerna bootstrap",
-		"dev": "nodemon sources/remote-control-app/index.js",
+		"dev": "nodemon --inspect='0.0.0.0' sources/remote-control-app/index.js",
 		"init": "lerna init",
 		"start": "node sources/remote-control-app/index.js"
 	},
 	"devDependencies": {
-		"lerna": "^2.2.0"
+		"lerna": "^2.2.0",
+		"nodemon": "^1.12.1"
 	}
 }
