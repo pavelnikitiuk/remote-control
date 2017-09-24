@@ -1,12 +1,8 @@
 const api = require('express').Router();
 const { repositories } = require('remote-control-database');
 
-const Base = require('../base/Base');
+const Recording = require('../base/Recording');
 
 const { TemperatureRecord } = repositories;
 
-const { get } = Base;
-
-get(api, TemperatureRecord);
-
-module.exports = api;
+module.exports = new Recording(TemperatureRecord, api, '/').app;
