@@ -5,7 +5,7 @@ const TemperatureRecord = new Schema({
   sensorId: Number,
   messageType: String,
   value: Number,
-  date: Date,
+  date: Number,
 });
 
 module.exports = mongoose.model('Record', TemperatureRecord);
