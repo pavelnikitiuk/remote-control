@@ -13,7 +13,7 @@ class TemperatureRecord extends RecordBase {
       sensorId,
       value,
       messageType: 'T',
-      date: new Date(),
+      date: +new Date(),
     };
     return super.add(model);
   }
