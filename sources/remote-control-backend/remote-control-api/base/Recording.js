@@ -16,7 +16,7 @@ class Recording extends Base {
 
   async all(req, res, next) {
     try {
-      const recource = await this.recource.find(req.mongoQuery);
+      const recource = await this.recource.findByUrlQuery(req.query);
       res.json(recource);
       res.statusCode = 200;
     } catch (e) {

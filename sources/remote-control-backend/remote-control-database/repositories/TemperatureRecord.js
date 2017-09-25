@@ -3,9 +3,14 @@ const RecordBase = require('./Base/RecordBase');
 const TemperatureRecordModel = require('../models/Recording');
 
 class TemperatureRecord extends RecordBase {
-  find(query = {}) {
+  find(query) {
     const tempQuery = Object.assign({}, query, {messageType: 'T'});
     return super.find(tempQuery);
+  }
+
+  findByUrlQuery(urlQuery) {
+    const query = super.parseQuery(urlQuery);
+    return this.find(query);
   }
 
   add(sensorId, value) {

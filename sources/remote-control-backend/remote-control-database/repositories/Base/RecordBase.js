@@ -1,7 +1,8 @@
 const Base = require('./index');
+const queryConverter = require('./../../services/queryToMongoConverter');
 
 module.exports = class RecordBase extends Base {
-  findByDateRange(startDate, endDate) {
-    return super.find({ date: { $gt: startDate, $lt: endDate } });
+  parseQuery(query) {
+    return queryConverter(query);
   }
 };

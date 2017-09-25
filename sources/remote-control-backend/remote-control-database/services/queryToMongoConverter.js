@@ -35,9 +35,9 @@ const availableQueries = [
   },
 ];
 
-function queryParamsMiddleware(req, res, next) {
-  req.mongoQuery = Object.keys(req.query).reduce((queries, key) => {
-    const query = `${key}=${req.query[key]}`;
+function queryParamsMiddleware(urlQuery) {
+  return Object.keys(urlQuery).reduce((queries, key) => {
+    const query = `${key}=${urlQuery[key]}`;
     const newQueries = availableQueries
       .filter(({ pattern }) => pattern.test(query))
       .reduce(
@@ -47,7 +47,6 @@ function queryParamsMiddleware(req, res, next) {
       );
     return Object.assign(newQueries, queries);
   }, {});
-  next();
 }
 
 module.exports = queryParamsMiddleware;

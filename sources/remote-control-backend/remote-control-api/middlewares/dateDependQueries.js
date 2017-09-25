@@ -4,8 +4,6 @@ const infinityCache = 31536000;
 
 function dateDependQueries(req, res, next) {
   const timeQuery = dateQueries.find((query) => req.query[query]);
-  /*eslint-disable*/
-  debugger;
   if (timeQuery) {
     addCache(timeQuery, req, res);
   }
