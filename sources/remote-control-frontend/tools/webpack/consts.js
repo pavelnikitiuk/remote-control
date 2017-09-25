@@ -1,5 +1,8 @@
 const { resolve } = require('path');
 
+const environment = process.env.NODE_ENV || 'development';
+const isDevelopment = environment === 'development';
+
 const paths = {
   root: resolve(__dirname, '../..'),
 };
@@ -13,4 +16,6 @@ paths.template = resolve(paths.assets, 'index.html');
 
 module.exports = {
   paths,
+  isDevelopment,
+  environment,
 };

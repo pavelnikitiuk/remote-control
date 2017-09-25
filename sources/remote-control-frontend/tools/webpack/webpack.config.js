@@ -2,12 +2,9 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const { paths } = require('./consts');
+const { paths, environment, isDevelopment } = require('./consts');
 
 const { entry, output, template } = paths;
-
-const environment = process.env.NODE_ENV || 'development';
-const isDevelopment = environment === 'development';
 
 let envConfig;
 
@@ -19,9 +16,7 @@ if (isDevelopment) {
 }
 
 const config = {
-  entry: [
-    entry,
-  ],
+  entry: [entry],
   output: {
     path: output,
   },
@@ -34,6 +29,29 @@ const config = {
         test: /.jsx?/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: isDevelopment,
+            },
+          },
+        ],
       },
     ],
   },
