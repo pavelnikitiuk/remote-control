@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Hello from 'Components/Hello';
+import Counter from 'components/Counter';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class App extends Component {
   render() {
     return (
       <div>
-        <Hello />
+        <Counter />
       </div>
     );
   }

@@ -5,7 +5,7 @@ const { paths } = require('./consts');
 
 module.exports = {
   entry: ['react-hot-loader/patch'],
-  devtool: 'eval',
+  devtool: 'source-map',
   plugins: [
     new WebpackNotifierPlugin({ title: 'Webpack' }),
     new webpack.HotModuleReplacementPlugin(),
