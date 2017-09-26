@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const { paths, environment, isDevelopment } = require('./consts');
+const { paths, environment, isDevelopment } = require('./../consts');
 
 const { entry, output, template, source } = paths;
 
@@ -19,6 +19,7 @@ const config = {
   entry: [entry],
   output: {
     path: output,
+    filename: 'bundle-[hash].js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],

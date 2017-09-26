@@ -4,7 +4,7 @@ const environment = process.env.NODE_ENV || 'development';
 const isDevelopment = environment === 'development';
 
 const paths = {
-  root: resolve(__dirname, '../..'),
+  root: resolve(__dirname, '..'),
 };
 
 paths.source = resolve(paths.root, 'source');

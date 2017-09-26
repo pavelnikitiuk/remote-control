@@ -1,5 +1,8 @@
 {
   "extends": "airbnb",
+  "globals": {
+    "isDevelopment": true
+  },
   "settings": {
     "import/resolver": {
       "webpack": {

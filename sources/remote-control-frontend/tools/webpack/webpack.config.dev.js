@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
 
-const { paths } = require('./consts');
+const { paths } = require('./../consts');
 
 module.exports = {
   entry: ['react-hot-loader/patch'],
