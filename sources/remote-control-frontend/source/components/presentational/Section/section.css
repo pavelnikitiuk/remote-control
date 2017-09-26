@@ -1,0 +1,25 @@
+
+:root {
+  --sectionBackgroundColor: #0F1A2E;
+  --sectionHeaderBackgroundColor: #071427;
+}
+.section {
+  min-width: 200px;
+  min-height: 200px;
+  background-color: var(--sectionBackgroundColor);
+  display: flex;
+  justify-content: column nowrap;
+
+  &__header {
+    height: 40px;
+    background: var(--sectionHeaderBackgroundColor);
+    width: 100%;
+  }
+
+  &__contetn {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    flex-flow: row nowrap;
+  }
+}
