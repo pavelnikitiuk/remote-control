@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
+import BrowserRouter from 'react-router-dom/BrowserRouter';
 
 import store from 'store';
 import App from 'containers/App';
@@ -11,7 +12,9 @@ const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store()}>
-        <Component />
+        <BrowserRouter>
+          <Component />
+        </BrowserRouter>
       </Provider>
     </AppContainer>,
     document.getElementById('app'),
