@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const { paths, environment, isDevelopment } = require('./consts');
 
-const { entry, output, template } = paths;
+const { entry, output, template, source } = paths;
 
 let envConfig;
 
@@ -22,6 +22,7 @@ const config = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+    modules: ['node_modules', source],
   },
   module: {
     rules: [

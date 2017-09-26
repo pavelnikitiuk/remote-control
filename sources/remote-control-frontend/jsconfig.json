@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"alwaysStrict": true,
+		"lib": [
+			"es2017"
+		],
+		"newLine": "LF",
+		"target": "ES6",
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./sources",
+		"jsx": "react",
+		"paths": {
+			"*": ["*"]
+		}
+	}
+}
