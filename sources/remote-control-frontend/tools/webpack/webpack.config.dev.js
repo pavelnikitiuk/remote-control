@@ -19,9 +19,14 @@ module.exports = {
       },
     ],
   },
+  watchOptions: {
+    aggregateTimeout: 50,
+    poll: true,
+  },
   devServer: {
     open: true,
     contentBase: paths.public,
+    publicPath: '/',
     port: 3000,
     hot: true,
     inline: true,
