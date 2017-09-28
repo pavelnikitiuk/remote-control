@@ -14,11 +14,12 @@ const Section = ({ header, children }) => (
 
 Section.propTypes = {
   header: PropTypes.string,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element,
 };
 
 Section.defaultProps = {
   header: '',
+  children: null,
 };
 
 export default Section;

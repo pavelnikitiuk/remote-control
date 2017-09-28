@@ -1,13 +1,20 @@
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import reducers from 'reducers';
+import middlewares from 'middlewares';
+
+const states = middlewares.map(middleware => applyMiddleware(middleware));
+
 /* eslint-disable */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+if (isDevelopment && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
+  states.push(window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__());
+}
 /* eslint-enable */
 
+
 export default (initialState) => {
-  const store = createStore(reducers, initialState, composeEnhancers());
+  const store = createStore(reducers, initialState, compose(...states));
   if (module.hot) {
-    module.hot.accept('../reducers', () => {
+    module.hot.accept('reducers', () => {
       /* eslint-disable */
       const nextRootReducer = require('reducers/index').default;
       /* eslint-enable */
