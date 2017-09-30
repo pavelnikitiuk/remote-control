@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.15.4",
     "remote-control-backend": "1.0.0",
     "remote-control-config": "1.0.0",
