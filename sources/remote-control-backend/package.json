@@ -12,11 +12,8 @@
     "docker:run": "docker run --privileged -p 80:80 remote-control/backend"
   },
   "dependencies": {
-    "body-parser": "^1.17.2",
     "express": "^4.15.4",
-    "method-override": "^2.3.9",
     "mongo-querystring": "^4.1.1",
-    "morgan": "^1.8.2",
     "remote-control-api": "^1.0.0",
     "remote-control-config": "^1.0.0",
     "remote-control-database": "^1.0.0",

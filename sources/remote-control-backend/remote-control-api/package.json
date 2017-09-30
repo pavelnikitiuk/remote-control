@@ -12,7 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.15.4",
+    "method-override": "^2.3.10",
+    "morgan": "^1.9.0",
     "remote-control-config": "1.0.0",
     "remote-control-database": "1.0.0"
   }
