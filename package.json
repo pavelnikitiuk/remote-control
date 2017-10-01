@@ -9,5 +9,8 @@
 	"devDependencies": {
 		"lerna": "^2.2.0",
 		"nodemon": "^1.12.1"
+	},
+	"dependencies": {
+		"redux-socket.io": "^1.4.0"
 	}
 }
