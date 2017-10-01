@@ -4,8 +4,11 @@ const Record = require('../models/Recording');
 
 class TemperatureRecord extends RecordBase {
   find(query) {
-    const tempQuery = Object.assign({}, query, {messageType: 'T'});
-    return super.find(tempQuery);
+    const tempQuery = Object.assign({}, query, { messageType: 'T' });
+    return super
+      .find(tempQuery)
+      .sort('-date')
+      .limit(200);
   }
 
   findByUrlQuery(urlQuery, aditionalQuery = {}) {
