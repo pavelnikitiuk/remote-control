@@ -6,11 +6,13 @@ const cors = require('cors');
 const { get } = require('remote-control-config');
 const { logger } = require('remote-control-services');
 
+const app = express();
+
 if (process.NODE_ENV !== 'production') {
-  backend.use(cors());
+  app.use(cors())
 }
 
-const app = express().use('/', backend);
+app.use('/', backend);
 
 const backendServer = http.createServer(app);
 
