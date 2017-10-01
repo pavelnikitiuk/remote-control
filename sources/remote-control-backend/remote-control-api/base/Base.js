@@ -1,13 +1,16 @@
 class Router {
-  constructor(app, routePath = '/') {
-    if (app == null) throw new Error('Missing required App');
-
+  constructor(app, recource, routePath = '/') {
+    this.recource = recource;
     this.app = app;
     this.routePath = routePath;
-    this._routes = [];
     this.registerServices();
   }
 
+  // shoul return array of apis
+  // availiable fields
+  //  method - http method, e.g get, put
+  //  route - url
+  //  action - callback
   get services() {
     return [];
   }

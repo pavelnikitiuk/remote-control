@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
+const { Schema } = mongoose;
 
 const TemperatureRecord = new Schema({
-  sensorId: Number,
+  sensor: { type: Schema.Types.Number, ref: 'Sensor' },
   messageType: String,
   value: Number,
   date: Number,

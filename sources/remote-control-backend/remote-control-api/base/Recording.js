@@ -1,11 +1,6 @@
 const Base = require('./Base');
 
 class Recording extends Base {
-  constructor(recource, app, path) {
-    super(app, path);
-    this.recource = recource;
-  }
-
   get services() {
     return [
       {

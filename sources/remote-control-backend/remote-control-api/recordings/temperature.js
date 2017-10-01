@@ -10,4 +10,4 @@ const { TemperatureRecord } = repositories;
 
 api.use(cache(get('recordings.temperature')));
 
-module.exports = new Recording(TemperatureRecord, api, '/').app;
+module.exports = new Recording(api, TemperatureRecord, '/').app;

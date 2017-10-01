@@ -1,6 +1,6 @@
 const RecordBase = require('./Base/RecordBase');
 
-const TemperatureRecordModel = require('../models/Recording');
+const Record = require('../models/Recording');
 
 class TemperatureRecord extends RecordBase {
   find(query) {
@@ -13,9 +13,9 @@ class TemperatureRecord extends RecordBase {
     return this.find(query);
   }
 
-  add(sensorId, value) {
+  add(sensor, value) {
     const model = {
-      sensorId,
+      sensor,
       value,
       messageType: 'T',
       date: +new Date(),
@@ -24,4 +24,4 @@ class TemperatureRecord extends RecordBase {
   }
 }
 
-module.exports = new TemperatureRecord(TemperatureRecordModel);
+module.exports = new TemperatureRecord(Record);
