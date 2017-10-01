@@ -15,6 +15,7 @@
       "error",
       { "resolvePaths": ["./sources"] }
     ],
-    "new-cap": "off"
+    "new-cap": "off",
+    "no-debugger": "warn"
   }
 }
