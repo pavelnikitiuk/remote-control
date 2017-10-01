@@ -8,8 +8,8 @@ class TemperatureRecord extends RecordBase {
     return super.find(tempQuery);
   }
 
-  findByUrlQuery(urlQuery) {
-    const query = super.parseQuery(urlQuery);
+  findByUrlQuery(urlQuery, aditionalQuery = {}) {
+    const query = Object.assign({}, super.parseQuery(urlQuery), aditionalQuery);
     return this.find(query);
   }
 
