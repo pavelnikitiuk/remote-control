@@ -1,19 +1,17 @@
 const io = require('socket.io');
 
+const Recordings = require('./recordings');
+
 class Socket {
-  constructor() {
+  constructor(io) {
     this._socket = {};
+    this.io = io;
+    this.initialize = this.initialize.bind(this);
   }
   initialize(server) {
-    this._socket = io(server);
-  }
-  emitTemp(data) {
-    try {
-      this._socket.emit('temperature', data);
-    } catch (e) {
-      console.log(e);
-    }
+    this._socket = this.io(server);
+    this.recordings = new Recordings(this._socket);
   }
 }
 
-module.exports = new Socket();
+module.exports = new Socket(io);

@@ -10,11 +10,4 @@ class SensorRepository extends RecordBase {
 
 const sensor = new SensorRepository(Sensor);
 
-// sensor.add({
-//   _id: 1,
-//   name: 'Temperature Sensor',
-//   type: 'T',
-//   description: 'Inside termometr',
-// });
-
 module.exports = sensor;

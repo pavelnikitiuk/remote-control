@@ -14,6 +14,7 @@
     "remote-control-config": "1.0.0",
     "remote-control-database": "1.0.0",
     "remote-control-services": "1.0.0",
+    "remote-control-socket": "1.0.0",
     "remote-control-utils": "1.0.0",
     "rxjs": "^5.4.3"
   },
