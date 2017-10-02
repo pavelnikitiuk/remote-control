@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux-immutable';
 
-function reducer() {
-  return {};
-}
+import collections from './collectionReducer';
 
-export default combineReducers({ reducer });
+export default combineReducers({ collections });
 

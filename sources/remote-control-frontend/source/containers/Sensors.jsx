@@ -1,6 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { lifecycle } from 'recompose';
 
-const SensorsContainer = () => <div />;
+import { sensors } from 'selectors/collections';
 
-export default connect()(SensorsContainer);
+import { requestSensors } from 'actions/sensors';
+
+import Sensors from 'components/Sensors';
+
+const SensorsContainer = ({ sensors }) => <Sensors sensors={sensors} />;
+
+const withLifecycle = lifecycle(
+  {
+    componentDidMount() {
+      const { requestSensors } = this.props;
+      requestSensors();
+    },
+  },
+)(SensorsContainer);
+
+const mapStateToProps = state => ({
+  sensors: sensors(state),
+});
+
+const mapStateToActions = {
+  requestSensors,
+};
+
+const withConnect = connect(mapStateToProps, mapStateToActions)(withLifecycle);
+
+export default withConnect;
+

@@ -9,4 +9,12 @@ const Sensor = new Schema({
   recordings: [{ type: Schema.Types.ObjectId, ref: 'Record' }],
 });
 
+Sensor.virtual('id').get(function() {
+  return this._id;
+});
+
+Sensor.set('toJSON', {
+  virtuals: true,
+});
+
 module.exports = mongoose.model('Sensor', Sensor);
