@@ -7,7 +7,7 @@
 		"newLine": "LF",
 		"target": "ES6",
 		"allowSyntheticDefaultImports": true,
-		"baseUrl": "./sources",
+		"baseUrl": "./source",
 		"jsx": "react",
 		"paths": {
 			"*": ["*"]
