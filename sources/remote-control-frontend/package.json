@@ -15,6 +15,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-decorators": "^6.24.1",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.0.5",
@@ -42,17 +43,22 @@
     "express": "^4.15.5",
     "immutable": "^3.8.1",
     "morgan": "^1.8.2",
+    "normalize.css": "^7.0.0",
     "prop-types": "^15.6.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-hot-loader": "^3.0.0-beta.7",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "recompose": "^0.25.1",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "redux-immutable": "^4.0.0",
-    "redux-thunk": "^2.2.0"
+    "redux-socket.io": "^1.4.0",
+    "redux-thunk": "^2.2.0",
+    "reset-css": "^2.2.1",
+    "socket.io-client": "^2.0.3"
   },
   "browserslist": [
     "last 2 versions"
