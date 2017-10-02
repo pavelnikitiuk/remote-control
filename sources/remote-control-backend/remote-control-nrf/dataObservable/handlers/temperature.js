@@ -2,7 +2,7 @@ const { repositories } = require('remote-control-database');
 const { converters } = require('remote-control-utils');
 const { logger } = require('remote-control-services');
 const { get } = require('remote-control-config');
-const { recordings } = require('remote-control-socket');
+const socket = require('remote-control-socket');
 
 const { toMinutes } = converters.time;
 
@@ -18,7 +18,7 @@ function temperature(observable) {
   );
   temperatureObservable.subscribe((data) => {
     logger.info(data);
-    recordings && recordings.emitTemperature(data);
+    socket.recordings && socket.recordings.emitTemperature(data);
   });
   temperatureObservable.throttleTime(
     toMinutes(updateTime)).subscribe((data) => {

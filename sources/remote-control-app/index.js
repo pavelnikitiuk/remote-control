@@ -20,7 +20,7 @@ if (process.NODE_ENV !== 'production') {
 app.use('/', backend);
 
 const backendServer = http.createServer(app);
-initializeSocket(http);
+initializeSocket(backendServer);
 
 backendServer.listen(get('backendPort'), () =>
   logger.info('app started')
