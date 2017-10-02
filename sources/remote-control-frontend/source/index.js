@@ -7,6 +7,11 @@ import BrowserRouter from 'react-router-dom/BrowserRouter';
 import store from 'store';
 import App from 'containers/App';
 
+import 'normalize.css';
+import 'reset-css/reset.css';
+import './index.css';
+
+
 const render = (Component) => {
   /* eslint-disable react/jsx-filename-extension */
   ReactDOM.render(
