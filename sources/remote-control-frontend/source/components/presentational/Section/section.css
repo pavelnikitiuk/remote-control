@@ -4,22 +4,28 @@
   --sectionHeaderBackgroundColor: #071427;
 }
 .section {
-  min-width: 200px;
   min-height: 200px;
   background-color: var(--sectionBackgroundColor);
-  display: flex;
-  justify-content: column nowrap;
+  display: inline-block;
 
-  &__header {
-    height: 40px;
+  &__header-container {
     background: var(--sectionHeaderBackgroundColor);
     width: 100%;
   }
 
-  &__contetn {
-    display: flex;
-    width: 100%;
+  &__header {
     padding: 10px;
+    text-align: center;
+  }
+
+
+
+  &__content {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+    margin: 20px;
     flex-flow: row nowrap;
   }
 }
