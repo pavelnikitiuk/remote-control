@@ -1,14 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Circle from '..';
 
-function calculateColor() {
-  const color1 = 'FF0000';
-  const color2 = '00FF00';
-  const ratio = 0.5;
+function calculateColor(ratio, color1, color2) {
   const hex = function hex(x) {
-    const stirng = x.toString(16);
-    return stirng.length === 1 ? `0${x}` : x;
+    const str = x.toString(16);
+    return str.length === 1 ? `0${x}` : str;
   };
 
   const r = Math.ceil(
@@ -24,7 +22,24 @@ function calculateColor() {
       parseInt(color2.substring(4, 6), 16) * (1 - ratio),
   );
 
-  return (hex(r) + hex(g) + hex(b)).toString();
+  return hex(r) + hex(g) + hex(b);
 }
 
-const ColoredCircle = () => {};
+const ColoredCircle = ({ maxColor, minColor, maxValue, minValue, value, children }) => {
+  const max = Math.abs(minValue) + Math.abs(maxValue);
+  const v = value + Math.abs(minValue);
+
+  const color = `#${calculateColor(v / max, maxColor, minColor)}`;
+  return <Circle color={color}>{children}</Circle>;
+};
+
+ColoredCircle.propTypes = {
+  maxColor: PropTypes.string.isRequired,
+  minColor: PropTypes.string.isRequired,
+  maxValue: PropTypes.number.isRequired,
+  minValue: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+  children: PropTypes.element.isRequired,
+};
+
+export default ColoredCircle;

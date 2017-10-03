@@ -15,7 +15,7 @@ class Circle extends Component {
   componentDidMount() {
     const { node } = this;
     const { clientWidth, clientHeight } = node;
-    this.setState(() => ({ radius: Math.max(clientHeight, clientWidth) }));
+    this.setState(() => ({ radius: Math.max(clientHeight, clientWidth) + 40 }));
   }
 
   getChildRef(node) {
