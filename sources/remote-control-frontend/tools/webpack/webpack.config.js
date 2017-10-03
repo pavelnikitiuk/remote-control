@@ -55,6 +55,23 @@ const config = {
           },
         ],
       },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              runtimeGenerator: require.resolve('./loaders/svg-to-icon-component-runtime-generator.js'),
+              runtimeOptions: {
+                iconModule: './../../source/components/presentational/Icon',
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
