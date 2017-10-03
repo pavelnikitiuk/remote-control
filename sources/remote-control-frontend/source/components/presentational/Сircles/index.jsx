@@ -30,7 +30,13 @@ class Circle extends Component {
       <div
         ref={node => (this.node = node)}
         className="circle"
-        style={{ borderColor: radius && color, borderRadius: radius, width: radius || null, height: radius || null }}
+        style={{
+          borderColor: color,
+          boxShadow: `0 0 15px ${color}`,
+          borderRadius: radius,
+          width: radius || null,
+          height: radius || null,
+        }}
       >
         {children}
       </div>
