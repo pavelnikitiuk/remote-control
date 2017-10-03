@@ -1,0 +1,21 @@
+:root {
+  --headerBackground: #5A426B;
+  --headerHeight: 60px;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  height: var(--headerHeight);
+  text-align: center;
+  background-color: var(--headerBackground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.content {
+  margin-top: var(--headerHeight); 
+  padding: 20px
+}

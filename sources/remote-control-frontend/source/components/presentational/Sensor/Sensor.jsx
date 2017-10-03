@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import TermometrIcon from 'icons/thermometer.svg';
 import Circle from './../Сircles/ColoredCircle';
@@ -16,16 +17,18 @@ const processWtihValue = {
   T: value => Math.round(value * 100) / 100,
 };
 
-const Sensor = ({ name, value, type }) => (
-  <Circle {...circleProps[type]} value={value}>
-    <div className="sensor">
-      <div className="sensor__value-container">
-        {icon[type]}
-        <h1 className="sensor__value">{processWtihValue[type](value)}</h1>
+const Sensor = ({ id, name, value, type }) => (
+  <Link to={`/sensor/${id}`}>
+    <Circle {...circleProps[type]} value={value}>
+      <div className="sensor">
+        <div className="sensor__value-container">
+          {icon[type]}
+          <h1 className="sensor__value">{processWtihValue[type](value)}</h1>
+        </div>
+        <h3 className="sensor__name">{name}</h3>
       </div>
-      <h3 className="sensor__name">{name}</h3>
-    </div>
-  </Circle>
+    </Circle>
+  </Link>
 );
 
 Sensor.propTypes = {

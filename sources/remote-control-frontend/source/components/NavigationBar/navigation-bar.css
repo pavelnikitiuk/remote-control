@@ -1,0 +1,11 @@
+:root {
+  --navbarBackgroundUp: #5A426B;
+  --navbarBackgroundDown: #313952;
+}
+
+.navigation-bar {
+  width: 200px;
+  min-height: 100vh;
+  z-index: 1;
+  background: linear-gradient(130deg, var(--navbarBackgroundUp) 0%, var(--navbarBackgroundDown) 100%); 
+}

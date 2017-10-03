@@ -4,11 +4,11 @@ import { Switch, Route } from 'react-router';
 import Dashboard from './Dashboard';
 
 const Router = () => (
-  <main>
+  <div className="content">
     <Switch>
       <Route exact path="/" component={Dashboard} />
     </Switch>
-  </main>
+  </div>
 );
 
 export default Router;
