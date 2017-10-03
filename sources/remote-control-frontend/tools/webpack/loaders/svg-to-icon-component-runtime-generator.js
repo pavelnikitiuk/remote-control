@@ -1,4 +1,3 @@
-const path = require('path');
 const pascalCase = require('pascal-case');
 const { stringifyRequest } = require('loader-utils');
 
@@ -21,14 +20,12 @@ function stringifySymbol(symbol) {
 }
 
 
-module.exports = function runtimeGenerator({ symbol, config, context, loaderContext }) {
+module.exports = function runtimeGenerator({ symbol, config, context }) {
   const { spriteModule, symbolModule, runtimeOptions } = config;
-  const compilerContext = loaderContext._compiler.context;
+  // const compilerContext = loaderContext._compiler.context;
 
-  const iconModulePath = path.resolve(compilerContext, runtimeOptions.iconModule);
-  const iconModuleRequest = stringify(
-    path.relative(path.dirname(symbol.request.file), iconModulePath),
-  );
+  const iconModulePath = runtimeOptions.iconModule;
+  const iconModuleRequest = stringify(iconModulePath);
 
   const spriteRequest = stringifyRequest({ context }, spriteModule);
   const symbolRequest = stringifyRequest({ context }, symbolModule);

@@ -66,7 +66,7 @@ const config = {
             options: {
               runtimeGenerator: require.resolve('./loaders/svg-to-icon-component-runtime-generator.js'),
               runtimeOptions: {
-                iconModule: './../../source/components/presentational/Icon',
+                iconModule: 'components/presentational/Icons',
               },
             },
           },
