@@ -1,7 +1,7 @@
 .circle {
-  border: 6px solid;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 20px;
 }

@@ -12,12 +12,6 @@ class Circle extends Component {
     this.getChildRef = this.getChildRef.bind(this);
   }
 
-  componentDidMount() {
-    const { node } = this;
-    const { clientWidth, clientHeight } = node;
-    this.setState(() => ({ radius: Math.max(clientHeight, clientWidth) + 40 }));
-  }
-
   getChildRef(node) {
     this.node = node;
     return node;
@@ -25,19 +19,20 @@ class Circle extends Component {
 
   render() {
     const { color, children } = this.props;
-    const { radius } = this.state;
+    let style = null;
+    if (this.node) {
+      const { clientWidth, clientHeight } = this.node;
+      const radius = Math.max(clientHeight, clientWidth);
+      style = {
+        border: '6px solid',
+        borderColor: color,
+        boxShadow: `0 0 15px ${color}`,
+        borderRadius: radius,
+      };
+    }
+
     return (
-      <div
-        ref={node => (this.node = node)}
-        className="circle"
-        style={{
-          borderColor: color,
-          boxShadow: `0 0 15px ${color}`,
-          borderRadius: radius,
-          width: radius || null,
-          height: radius || null,
-        }}
-      >
+      <div style={style} ref={node => (this.node = node)} className="circle">
         {children}
       </div>
     );

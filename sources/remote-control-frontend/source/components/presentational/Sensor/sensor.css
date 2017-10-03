@@ -1,10 +1,26 @@
 .sensor {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  width: 150px;
+  height: 150px;
+
   &__name {
     margin-top: 10px;
   }
 
+  &__value-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
   &__value {
+    flex-grow: 5;
     font-size: 50px;
     color: #fff;
+    margin-right: 30px;
   }
 }
