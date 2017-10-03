@@ -1,0 +1,21 @@
+:root {
+  --navColor: #fff;
+}
+
+.navigation-link {
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  color: var(--navColor);
+  fill: var(--navColor);
+
+  &__icon {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+  }
+
+}
