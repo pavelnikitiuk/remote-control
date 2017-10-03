@@ -5,7 +5,9 @@ import Sensor from 'components/presentational/Sensor';
 import Section from 'components/presentational/Section';
 
 const Sensors = ({ sensors }) => (
-  <Section header="Climage">{sensors.map(sensor => <Sensor key={sensor.id} {...sensor} />)}</Section>
+  <Section header="Climate">
+    {sensors.map(sensor => <Sensor key={sensor.id} {...sensor} />)}
+  </Section>
 );
 
 Sensors.propTypes = {

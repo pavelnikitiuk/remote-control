@@ -1,7 +1,7 @@
 
 :root {
-  --sectionBackgroundColor: #0F1A2E;
-  --sectionHeaderBackgroundColor: #071427;
+  --sectionBackgroundColor: #1A1E32;
+  --sectionHeaderBackgroundColor: #060919;
 }
 .section {
   min-height: 200px;
@@ -27,5 +27,8 @@
     width: 100%;
     margin: 20px;
     flex-flow: row nowrap;
+    & > * {
+      margin: 0 20px;
+    }
   }
 }

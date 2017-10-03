@@ -1,0 +1,9 @@
+.sensor {
+  &__name {
+
+  }
+
+  &__value {
+    font-size: 50px;
+  }
+}
