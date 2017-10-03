@@ -1,12 +1,13 @@
 
 :root {
-  --sectionBackgroundColor: #1A1E32;
+  --sectionBackgroundColor: #0F1A2E;
   --sectionHeaderBackgroundColor: #060919;
 }
 .section {
   min-height: 200px;
   background-color: var(--sectionBackgroundColor);
   display: inline-block;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.24);
 
   &__header-container {
     background: var(--sectionHeaderBackgroundColor);

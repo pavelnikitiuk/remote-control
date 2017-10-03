@@ -1,9 +1,10 @@
 .sensor {
   &__name {
-
+    margin-top: 10px;
   }
 
   &__value {
     font-size: 50px;
+    color: #fff;
   }
 }
