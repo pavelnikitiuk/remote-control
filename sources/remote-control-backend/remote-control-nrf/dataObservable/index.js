@@ -1,10 +1,25 @@
-const { Subject } = require('rxjs');
+const { fromEventPattern } = require('rxjs');
+const { tap } = require('rxjs/operators');
 const dataHandlers = require('./handlers');
 
-module.exports = function getObserverCallback() {
-  const subject = new Subject();
-  dataHandlers.forEach(({ type, observer }) =>
-    observer(subject.filter((data) => data.messageType === type))
+module.exports = function createObservable(nrf) {
+  const nrf$ = fromEventPattern(
+    (handler) => nrf.on('onDataReceived', handler),
+    (handler) => nrf.off('onDataReceived', handler)
   );
-  return (data) => subject.next(data);
+  nrf$.subscribe.pipe(
+    tap((d) => {
+      console.log(d);
+    })
+  ).subscribe();
 };
+
+// function getObserverCallback() {
+//   const subject = new Subject();
+//   dataHandlers.forEach(({ type, observer }) =>
+//     observer(subject.filter((data) =>{
+//       return data.messageType === type;
+//     }))
+//   );
+//   return (data) => subject.next(data);
+// };
