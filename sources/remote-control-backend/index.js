@@ -11,9 +11,8 @@ const app = express();
 app.use('/', api);
 
 // connect to database
-// connect(get('connectionString'));
+connect(get('connectionString'));
 /* eslint-disable */
-debugger;
 // start listening nrf modules
 nrfStart();
 

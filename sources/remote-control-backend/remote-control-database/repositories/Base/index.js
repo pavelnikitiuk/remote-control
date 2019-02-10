@@ -9,6 +9,10 @@ class BaseRepository {
     return entryModel.save();
   }
 
+  all() {
+    return this._model.find({});
+  }
+
   // Read
   find(query) {
     return this._model.find(query);

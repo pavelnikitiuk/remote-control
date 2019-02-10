@@ -18,6 +18,8 @@ class NrfMock extends EventEmitter {
       this.emit('onDataReceived', {
         messageType: 'T',
         temperature: Date.now() % 100,
+        fromNode: 1,
+        sensorId: 1,
       });
     }, 1000);
   }
