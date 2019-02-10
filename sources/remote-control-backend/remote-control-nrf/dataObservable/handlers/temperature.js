@@ -1,3 +1,4 @@
+const { filter, tap, throttleTime } = require('rxjs/operators');
 const { repositories } = require('remote-control-database');
 const { converters } = require('remote-control-utils');
 const { logger } = require('remote-control-services');
@@ -11,20 +12,21 @@ const { TemperatureRecord } = repositories;
 const minTemp = -60;
 const maxTemp = 100;
 
-function temperature(observable) {
-  const updateTime = get('recordings.temperature.updateTime');
-  const temperatureObservable = observable.filter(
-    ({ temperature }) => temperature > minTemp && temperature < maxTemp
+const writeInSocket = (data) =>
+  socket.recordings && socket.recordings.emitTemperature(data);
+const recordInDb = ({ fromNode, temperature }) =>
+  TemperatureRecord.add(fromNode, temperature);
+const updateTime = get('recordings.temperature.updateTime');
+
+function tempeartureHandler(observable) {
+  return observable.pipe(
+    filter(({ messageType }) => messageType === 'T'),
+    filter(({ temperature }) => temperature > minTemp && temperature < maxTemp),
+    tap(logger.info),
+    tap(writeInSocket),
+    throttleTime(toMinutes(updateTime)),
+    tap(recordInDb)
   );
-  temperatureObservable.subscribe((data) => {
-    logger.info(data);
-    socket.recordings && socket.recordings.emitTemperature(data);
-  });
-  temperatureObservable.throttleTime(
-    toMinutes(updateTime)).subscribe((data) => {
-    const { fromNode, temperature } = data;
-    TemperatureRecord.add(fromNode, temperature);
-  });
 }
 
-module.exports = temperature;
+module.exports = tempeartureHandler;

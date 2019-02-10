@@ -1,10 +1,4 @@
+const { rx } = require('remote-control-utils');
 const temperature = require('./temperature');
 
-const handlers = [
-  {
-    type: 'T',
-    observer: (observable) => temperature(observable),
-  },
-];
-
-module.exports = handlers;
+module.exports = rx.combine(temperature);
