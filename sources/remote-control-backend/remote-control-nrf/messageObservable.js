@@ -6,7 +6,7 @@ const {
   observeOn,
   subscribeOn,
 } = require('rxjs/operators');
-const dataHandlers = require('./handlers');
+const dataHandlers = require('./messageObservers');
 
 const observable$ = new Subject();
 const stateSubject$ = new Subject().pipe(observeOn(queueScheduler));
