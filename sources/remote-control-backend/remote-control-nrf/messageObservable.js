@@ -1,26 +1,33 @@
-const { Subject, queueScheduler, from } = require('rxjs');
+const { Subject, queueScheduler, from, BehaviorSubject } = require('rxjs');
 const { StateObservable } = require('redux-observable');
 const {
   map,
   mergeMap,
   observeOn,
   subscribeOn,
+  switchMap,
 } = require('rxjs/operators');
-const dataHandlers = require('./messageObservers');
+const { rx } = require('remote-control-utils');
+const defaultObservers = require('./messageObservers');
+
+const RxOperators = require('rxjs/operators');
+const Rx = require('rxjs');
 
 const observable$ = new Subject();
 const stateSubject$ = new Subject().pipe(observeOn(queueScheduler));
 const state$ = new StateObservable(stateSubject$, {});
 const messageSubject$ = new Subject().pipe(observeOn(queueScheduler));
 
+const root$ = new BehaviorSubject(defaultObservers);
+
 function handleMessage(msg) {
-  const newValue = Object.assign({}, msg, { id: msg.fromNode });
-  const newState = Object.assign({}, state$.value, newValue);
+  state$.value[msg.fromNode] = msg;
+  const newState = Object.assign({}, state$.value);
   stateSubject$.next(newState);
   messageSubject$.next(msg);
 }
 
-module.exports = function createObservable(nrf, dependencies = {}) {
+function createObservable(nrf, dependencies = {}, observers) {
   nrf.on('onDataReceived', handleMessage);
   observable$
     .pipe(
@@ -28,10 +35,29 @@ module.exports = function createObservable(nrf, dependencies = {}) {
       mergeMap((output$) =>
         from(output$).pipe(
           subscribeOn(queueScheduler),
-          observeOn(queueScheduler),
+          observeOn(queueScheduler)
         )
       )
     )
     .subscribe(/* TODO: nrf.sendMessage() */);
-  observable$.next(dataHandlers);
+
+  const rootObserver = (...args) =>
+    root$.pipe(switchMap((observer) => observer(...args)));
+
+  observable$.next(rootObserver);
+}
+
+function updateObservers(...observersString) {
+  const observers = observersString.map((observerString) => {
+    const s = new Function('Rx, RxOperators', ` return ${observerString};`);
+    return s(Rx, RxOperators);
+  });
+  const newRootObserver = rx.combine(defaultObservers, ...observers);
+  root$.next(newRootObserver);
+}
+
+module.exports = {
+  createObservable,
+  updateObservers,
 };
+
