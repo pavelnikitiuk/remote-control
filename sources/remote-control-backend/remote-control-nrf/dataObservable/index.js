@@ -1,14 +1,10 @@
-const { fromEventPattern, Subject, queueScheduler, from } = require('rxjs');
-const R = require('ramda');
+const { Subject, queueScheduler, from } = require('rxjs');
 const { StateObservable } = require('redux-observable');
 const {
-  filter,
   map,
   mergeMap,
   observeOn,
   subscribeOn,
-  tap,
-  ignoreElements,
 } = require('rxjs/operators');
 const dataHandlers = require('./handlers');
 
