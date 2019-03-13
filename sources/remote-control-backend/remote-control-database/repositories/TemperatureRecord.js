@@ -1,6 +1,6 @@
 const RecordBase = require('./Base/RecordBase');
 
-const Record = require('../models/Recording');
+const Record = require('../models2/Record');
 
 class TemperatureRecord extends RecordBase {
   find(query) {
@@ -16,11 +16,16 @@ class TemperatureRecord extends RecordBase {
     return this.find(query);
   }
 
-  add(sensor, value) {
+  getLastRecordBySensorId(sensorId) {
+    const query = { sensorId };
+    return super.findOne(query);
+  }
+
+  add(sensorId, value) {
     const model = {
-      sensor,
+      sensorId,
       value,
-      messageType: 'T',
+      type: 'T',
       date: +new Date(),
     };
     return super.add(model);

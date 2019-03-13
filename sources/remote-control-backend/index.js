@@ -12,7 +12,7 @@ app.use('/', api);
 
 // connect to database
 connect(get('connectionString'));
-
+/* eslint-disable */
 // start listening nrf modules
 nrfStart();
 
