@@ -16,7 +16,8 @@
     "remote-control-socket": "1.0.0",
     "remote-control-utils": "1.0.0",
     "rxjs": "^6.4.0",
-    "redux-observable": "^1.0.0"
+    "redux-observable": "^1.0.0",
+    "nrf24": "^0.1.0-beta"
   },
   "keywords": [],
   "author": "",

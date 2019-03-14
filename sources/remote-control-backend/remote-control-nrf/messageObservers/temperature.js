@@ -1,5 +1,5 @@
 const { filter, tap, throttleTime } = require('rxjs/operators');
-const { converters } = require('remote-control-utils');
+const { converters, rx } = require('remote-control-utils');
 const { get } = require('remote-control-config');
 
 const { toMinutes } = converters.time;
@@ -19,7 +19,7 @@ function tempeartureHandler(
   { logger, socket, repositories: { TemperatureRecord } }
 ) {
   return message$.pipe(
-    filter(({ messageType }) => messageType === 'T'),
+    rx.ofMessageType('T'),
     filter(({ temperature }) => temperature > minTemp && temperature < maxTemp),
     tap((data) => logger.info(data)),
     tap((data) => writeInSocket(data, socket)),

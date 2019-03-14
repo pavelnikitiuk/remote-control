@@ -29,6 +29,7 @@ function handleMessage(msg) {
 
 function createObservable(nrf, dependencies = {}, observers) {
   nrf.on('onDataReceived', handleMessage);
+  nrf.start();
   observable$
     .pipe(
       map((x) => x(messageSubject$, state$, dependencies)),

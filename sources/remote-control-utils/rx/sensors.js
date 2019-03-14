@@ -1,4 +1,4 @@
-const { filter, distinctUntilChanged } = require('rxjs/operators');
+const { filter, distinctUntilChanged } = require("rxjs/operators");
 
 const ofSensor = id => source =>
   source.pipe(
@@ -15,7 +15,11 @@ const whenSensorValueChange = (id, getter) => source =>
     })
   );
 
+const ofMessageType = type => source =>
+  source.pipe(filter(({ messageType }) => type === messageType));
+
 module.exports = {
   whenSensorValueChange,
-  ofSensor
+  ofSensor,
+  ofMessageType
 };
