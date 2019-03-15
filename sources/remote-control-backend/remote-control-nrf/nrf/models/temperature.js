@@ -1,18 +1,18 @@
-const BaseModel = require("./baseModel");
+const BaseModel = require('./baseModel');
 
 class TemperatureModel extends BaseModel {
   get type() {
-    return "0x54";
+    return '0x54';
   }
 
-  get maxLength () {
+  get maxLength() {
     return 4;
   }
 
   getModel(header, buffer) {
     return {
       ...super.getModel(header),
-      temperature: buffer.readFloatLE(0)
+      temperature: buffer.readFloatLE(0),
     };
   }
 }

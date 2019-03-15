@@ -1,3 +1,6 @@
+const RxOperators = require('rxjs/operators');
+const Rx = require('rxjs');
+
 const { Subject, queueScheduler, from, BehaviorSubject } = require('rxjs');
 const { StateObservable } = require('redux-observable');
 const {
@@ -8,10 +11,8 @@ const {
   switchMap,
 } = require('rxjs/operators');
 const { rx } = require('remote-control-utils');
-const defaultObservers = require('./messageObservers');
 
-const RxOperators = require('rxjs/operators');
-const Rx = require('rxjs');
+const defaultObservers = require('./messageObservers');
 
 const observable$ = new Subject();
 const stateSubject$ = new Subject().pipe(observeOn(queueScheduler));
@@ -31,20 +32,19 @@ function createObservable(nrf, dependencies = {}, observers) {
   nrf.on('onDataReceived', handleMessage);
   nrf.start();
   observable$
-    .pipe(
-      map((x) => x(messageSubject$, state$, dependencies)),
-      mergeMap((output$) =>
-        from(output$).pipe(
-          subscribeOn(queueScheduler),
-          observeOn(queueScheduler)
-        )
+      .pipe(
+          map((x) => x(messageSubject$, state$, dependencies)),
+          mergeMap((output$) =>
+            from(output$).pipe(
+                subscribeOn(queueScheduler),
+                observeOn(queueScheduler)
+            )
+          )
       )
-    )
-    .subscribe(/* TODO: nrf.sendMessage() */);
+      .subscribe(nrf.send);
 
   const rootObserver = (...args) =>
     root$.pipe(switchMap((observer) => observer(...args)));
-
   observable$.next(rootObserver);
 }
 
@@ -61,4 +61,3 @@ module.exports = {
   createObservable,
   updateObservers,
 };
-
