@@ -21,9 +21,9 @@ class TemperatureRecord extends RecordBase {
     return super.findOne(query);
   }
 
-  add(sensorId, value) {
+  add(sensor, value) {
     const model = {
-      sensorId,
+      sensor,
       value,
       type: 'T',
       date: +new Date(),

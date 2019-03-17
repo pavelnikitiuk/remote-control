@@ -5,22 +5,20 @@ const Base = require('../base/Base');
 
 const { Sensor } = repositories;
 
-
 class Sensors extends Base {
   get services() {
     return [
       {
         action: this.all,
       },
-      // {
-      //   action: this.add,
-      //   method: 'post',
-      // },
+      {
+        action: this.add,
+        method: 'post',
+      },
     ];
   }
 
   async all(req, res) {
-    debugger;
     try {
       const recource = await this.recource.find();
       res.json(recource);
@@ -29,7 +27,12 @@ class Sensors extends Base {
       res.status(500).send(e);
     }
   }
+
+  async add(req, res) {
+    const { type, id } = req.body;
+    this.recource.add({type, _id: id});
+    res.send(200);
+  }
 }
 
 module.exports = new Sensors(api, Sensor, '/').app;
-
