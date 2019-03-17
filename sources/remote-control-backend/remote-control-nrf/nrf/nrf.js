@@ -1,6 +1,6 @@
 const EventEmitter = require('events');
 const { logger } = require('remote-control-services');
-
+/* eslint-disable-next-line */
 const nrf24 = require('nrf24');
 
 class Nrf extends EventEmitter {

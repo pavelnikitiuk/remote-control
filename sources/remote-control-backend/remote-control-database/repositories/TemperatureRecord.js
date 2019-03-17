@@ -6,9 +6,9 @@ class TemperatureRecord extends RecordBase {
   find(query) {
     const tempQuery = Object.assign({}, query, { messageType: 'T' });
     return super
-      .find(tempQuery)
-      .sort('-date')
-      .limit(200);
+        .find(tempQuery)
+        .sort('-date')
+        .limit(200);
   }
 
   findByUrlQuery(urlQuery, aditionalQuery = {}) {

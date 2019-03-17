@@ -10,13 +10,13 @@ const sensors = require('./sensors');
 const api = express.Router();
 
 api
-  .use(morgan('dev'))
-  .use(bodyParser.json())
-  .use(methodOverride());
+    .use(morgan('dev'))
+    .use(bodyParser.json())
+    .use(methodOverride());
 
 api
-  .use('/recordings', recordings)
-  .use('/devices', devices)
-  .use('/sensors', sensors);
+    .use('/recordings', recordings)
+    .use('/devices', devices)
+    .use('/sensors', sensors);
 
 module.exports = api;
