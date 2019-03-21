@@ -1,10 +1,13 @@
 const EventEmitter = require('events');
 const TemperatureModel = require('./models/temperature');
-const Nrf = require('./nrf');
+
 
 class NrfMock extends EventEmitter {
   constructor() {
     super();
+  }
+
+  start() {
     setInterval(() => {
       this.emit('onDataReceived', {
         messageType: 'T',
@@ -19,6 +22,7 @@ let nrf;
 if (process.env.DO_NOT_USE_NRF) {
   nrf = new NrfMock();
 } else {
+  const Nrf = require('./nrf');
   nrf = new Nrf([TemperatureModel]);
 }
 

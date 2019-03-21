@@ -1,6 +1,6 @@
 const Base = require('./Base');
 
-const Command = require('../models2/Command');
+const Command = require('../models/Command');
 
 class TemperatureRecord extends Base {
   add(sensorId, script) {

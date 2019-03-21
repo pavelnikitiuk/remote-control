@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const schema = Schema({
   _id: Schema.Types.Number,
-  recordings: [{ type: Schema.Types.ObjectId, ref: 'Record' }],
-  node: { type: Schema.Types.Number, ref: 'Node' },
+  records: [{ type: Schema.Types.ObjectId, ref: 'Record' }],
+  // node: { type: Schema.Types.Number, ref: 'Node' },
   mType: String,
 });
 

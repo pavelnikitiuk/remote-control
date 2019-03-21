@@ -30,7 +30,7 @@ class Sensors extends Base {
 
   async add(req, res) {
     const { type, id } = req.body;
-    this.recource.add({type, _id: id});
+    this.recource.add({mType: type, _id: id});
     res.send(200);
   }
 }

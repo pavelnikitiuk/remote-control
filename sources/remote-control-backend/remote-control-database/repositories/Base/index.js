@@ -10,7 +10,6 @@ class BaseRepository {
   }
 
   all() {
-    console.log('123');
     return this._model.find({});
   }
 
