@@ -1,6 +1,6 @@
 const RecordBase = require('./Base/RecordBase');
 
-const Record = require('../models2/Record');
+const Record = require('../models/Record');
 
 class TemperatureRecord extends RecordBase {
   find(query) {

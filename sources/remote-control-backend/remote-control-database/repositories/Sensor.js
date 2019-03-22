@@ -1,6 +1,6 @@
 const RecordBase = require('./Base/RecordBase');
 
-const Sensor = require('../models2/Sensor');
+const Sensor = require('../models/Sensor');
 
 class SensorRepository extends RecordBase {
   find(query) {
