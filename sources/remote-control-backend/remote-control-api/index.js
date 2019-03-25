@@ -5,6 +5,7 @@ const morgan = require('morgan');
 
 const recordings = require('./recordings');
 const sensors = require('./sensors');
+const nodes = require('./nodes');
 const registerDependencies = require('./middlewares/dependencyInjection');
 
 const depenndencies = {
@@ -21,6 +22,7 @@ api
 
 api
   .use('/recordings', recordings)
-  .use('/sensors', sensors);
+  .use('/sensors', sensors)
+  .use('/nodes', nodes);
 
 module.exports = api;

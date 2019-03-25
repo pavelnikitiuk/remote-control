@@ -4,7 +4,7 @@ const Sensor = require('../models/Sensor');
 
 class SensorRepository extends RecordBase {
   find(query) {
-    return this._model.find(query).populate('records');
+    return this._model.find(query).populate('node');
   }
 }
 

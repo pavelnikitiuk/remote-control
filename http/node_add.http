@@ -1,0 +1,7 @@
+POST http://localhost:3000/nodes
+content-type: application/json
+
+{
+    "id": 1,
+    "description": "description"
+}

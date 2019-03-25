@@ -3,5 +3,6 @@ content-type: application/json
 
 {
     "id": 1,
-    "type": "T"
+    "type": "T",
+    "node": 1
 }

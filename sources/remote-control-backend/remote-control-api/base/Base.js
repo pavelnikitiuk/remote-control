@@ -9,6 +9,16 @@ class Router {
     return this.getResource(res.locals.dependencies.repositories);
   }
 
+  async all(req, res) {
+    try {
+      const resources = await this.resource(res).find();
+      res.json(resources);
+      res.statusCode = 200;
+    } catch (e) {
+      res.status(500).send(e);
+    }
+  }
+
   // shoul return array of apis
   // availiable fields
   //  method - http method, e.g get, put
