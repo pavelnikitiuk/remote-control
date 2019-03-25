@@ -1,6 +1,6 @@
 const io = require('socket.io');
 
-const Recordings = require('./recordings');
+const Records = require('./recordings');
 
 class Socket {
   constructor(io) {
@@ -10,7 +10,7 @@ class Socket {
   }
   initialize(server) {
     this._socket = this.io(server);
-    this.recordings = new Recordings(this._socket);
+    this.recordings = new Records(this._socket);
   }
 }
 

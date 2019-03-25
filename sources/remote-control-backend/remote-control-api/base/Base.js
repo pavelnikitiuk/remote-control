@@ -1,9 +1,12 @@
 class Router {
-  constructor(app, recource, routePath = '/') {
-    this.recource = recource;
+  constructor(app, routePath = '/') {
     this.app = app;
     this.routePath = routePath;
     this.registerServices();
+  }
+
+  resource(res) {
+    return this.getResource(res.locals.dependencies.repositories);
   }
 
   // shoul return array of apis

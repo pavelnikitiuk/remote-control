@@ -1,11 +1,13 @@
 const api = require('express').Router();
-const { repositories } = require('remote-control-database');
 
 const Base = require('../base/Base');
 
-const { Sensor } = repositories;
 
 class Sensors extends Base {
+  getResource(resources) {
+    return resources.Sensor;
+  }
+
   get services() {
     return [
       {
@@ -20,8 +22,8 @@ class Sensors extends Base {
 
   async all(req, res) {
     try {
-      const recource = await this.recource.find();
-      res.json(recource);
+      const resources = await this.resource(res).find();
+      res.json(resources);
       res.statusCode = 200;
     } catch (e) {
       res.status(500).send(e);
@@ -30,9 +32,9 @@ class Sensors extends Base {
 
   async add(req, res) {
     const { type, id } = req.body;
-    this.recource.add({mType: type, _id: id});
+    this.resource.add({mType: type, _id: id});
     res.send(200);
   }
 }
 
-module.exports = new Sensors(api, Sensor, '/').app;
+module.exports = new Sensors(api, '/').app;

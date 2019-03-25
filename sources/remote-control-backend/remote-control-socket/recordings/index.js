@@ -1,4 +1,4 @@
-class Recordings {
+class Records {
   constructor(socket) {
     this.socket = socket;
   }
@@ -13,4 +13,4 @@ class Recordings {
   }
 }
 
-module.exports = Recordings;
+module.exports = Records;

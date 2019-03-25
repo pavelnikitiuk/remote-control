@@ -1,13 +1,16 @@
 const api = require('express').Router();
-const { repositories } = require('remote-control-database');
 const { get } = require('remote-control-config');
 
 const cache = require('../middlewares/cacheRecordingQueries');
 
-const Recording = require('../base/Recording');
-
-const { TemperatureRecord } = repositories;
+const Record = require('../base/Record');
 
 api.use(cache(get('recordings.temperature')));
 
-module.exports = new Recording(api, TemperatureRecord, '/').app;
+class Temperature extends Record {
+  getResource(resources) {
+    return resources.TemperatureRecord;
+  }
+}
+
+module.exports = new Temperature(api).app;

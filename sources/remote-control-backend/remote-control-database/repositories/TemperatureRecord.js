@@ -4,7 +4,7 @@ const Record = require('../models/Record');
 
 class TemperatureRecord extends RecordBase {
   find(query) {
-    const tempQuery = Object.assign({}, query, { messageType: 'T' });
+    const tempQuery = Object.assign({}, query, { type: 'T' });
     return super
         .find(tempQuery)
         .sort('-date')

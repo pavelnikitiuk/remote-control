@@ -1,6 +1,6 @@
 const Base = require('./Base');
 
-class Recording extends Base {
+class Record extends Base {
   get services() {
     return [
       {
@@ -16,10 +16,10 @@ class Recording extends Base {
   async bySensorId(req, res) {
     try {
       const { id } = req.params;
-      const recource = await this.recource.findByUrlQuery(req.query, {
+      const resource = await this.resource(res).findByUrlQuery(req.query, {
         sensor: id,
       });
-      res.json(recource);
+      res.json(resource);
       res.statusCode = 200;
     } catch (e) {
       res.statusCode(500).send('error');
@@ -28,8 +28,8 @@ class Recording extends Base {
 
   async all(req, res, next) {
     try {
-      const recource = await this.recource.findByUrlQuery(req.query);
-      res.json(recource);
+      const resource = await this.resource(res).findByUrlQuery(req.query);
+      res.json(resource);
       res.statusCode = 200;
     } catch (e) {
       res.code = 500;
@@ -37,4 +37,4 @@ class Recording extends Base {
   }
 }
 
-module.exports = Recording;
+module.exports = Record;

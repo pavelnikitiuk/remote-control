@@ -5,7 +5,7 @@ const defaultConfig = {
   updateTime: 10,
 };
 
-class CacheRecording {
+class CacheRecord {
   constructor(config, req, res, next) {
     this.config = config;
     this.req = req;
@@ -37,7 +37,7 @@ class CacheRecording {
 }
 
 function cache(config = defaultConfig) {
-  return (...params) => new CacheRecording(config, ...params);
+  return (...params) => new CacheRecord(config, ...params);
 }
 
 module.exports = cache;
