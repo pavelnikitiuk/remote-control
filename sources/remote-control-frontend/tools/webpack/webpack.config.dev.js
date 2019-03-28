@@ -6,6 +6,7 @@ const { paths } = require('./../consts');
 module.exports = {
   entry: ['react-hot-loader/patch'],
   devtool: 'source-map',
+  mode: 'development',
   plugins: [
     new WebpackNotifierPlugin({ title: 'Webpack' }),
     new webpack.HotModuleReplacementPlugin(),
@@ -27,7 +28,7 @@ module.exports = {
     open: true,
     contentBase: paths.public,
     publicPath: '/',
-    port: 3000,
+    port: 4000,
     hot: true,
     inline: true,
     overlay: {
